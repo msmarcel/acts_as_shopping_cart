@@ -10,6 +10,7 @@ module ActiveRecord
 
           unless cart_item
             self.save
+            object.save
             shopping_cart_items.create(:item => object, :price => price, :quantity => quantity)
           else
             cumulative = cumulative == true ? cart_item.quantity : 0
